@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/state";
+    import { AppConfig } from "$lib/config";
     import { Row, Text, Symbol } from "duckylib";
 
     interface HeaderProps {
@@ -20,7 +21,7 @@
     {/if}
     <Row heightPx="fit" widthPx="fit" gapEm={0.5}>
         <Symbol name="support" sizePx={20} hoverEffect={false} inheritColor />
-        <Text weight="bold"><a href="https://discord.gg/8ms2uGqqP6" target="_blank">Support Server</a></Text>
+        <Text weight="bold"><a href={AppConfig.support_server} target="_blank">Support Server</a></Text>
     </Row>
     <span class="faded"><Text inheritColor>⋅</Text></span>
     <Row heightPx="fit" widthPx="fit" gapEm={0.5}>
@@ -31,12 +32,12 @@
         <span class="faded"><Text inheritColor>⋅</Text></span>
         <Row heightPx="fit" widthPx="fit" gapEm={0.5}>
             <span style:color="var(--green-bright)"><Symbol name="construction" sizePx={20} hoverEffect={false} inheritColor /></span>
-            <Text weight="bold" inheritColor><a href="https://discord.com/oauth2/authorize?client_id=1545764581417291816" target="_blank" style:color="var(--green-bright)">Add Toolrinth</a></Text>
+            <Text weight="bold" inheritColor><a href={AppConfig.invites.stable} target="_blank" style:color="var(--green-bright)">Add Toolrinth</a></Text>
         </Row>
         <span class="faded"><Text inheritColor>⋅</Text></span>
         <Row heightPx="fit" widthPx="fit" gapEm={0.5}>
             <span style:color="var(--pink-bright)"><Symbol name="raven" sizePx={20} hoverEffect={false} inheritColor /></span>
-            <Text weight="bold" inheritColor><a href="https://discord.com/oauth2/authorize?client_id=1545933466196254761" target="_blank" style:color="var(--pink-bright)">Add Canary</a></Text>
+            <Text weight="bold" inheritColor><a href={AppConfig.invites.canary} target="_blank" style:color="var(--pink-bright)">Add Canary</a></Text>
         </Row>
     {/if}
 </Row>

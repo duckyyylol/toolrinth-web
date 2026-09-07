@@ -18,6 +18,7 @@
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import { onMount } from "svelte";
+    import { AppConfig } from "$lib/config";
 
     let mobileQuery = new MediaQuery(`max-width: ${PUBLIC_MOBILE_SIZE_PX}px`);
 
@@ -53,17 +54,46 @@
                 ><Text sizeEm={1.5} maxLines={1} inheritColor>Your Modrinth Companion</Text
                 ></span
             >
-            <button onclick={() => window.open("https://discord.com/oauth2/authorize?client_id=1545764581417291816", "_blank")} class="invite"
-                ><Row heightPx="fit" widthPx="fit">
-                    <Symbol name="construction" inheritColor /><Text
-                        sizeEm={1.66}
-                        weight="bolder"
-                        inheritColor>Add Toolrinth</Text
-                    >
-                </Row></button
-            >
+            <Row>
+                <button onclick={() => window.open(AppConfig.invites.stable, "_blank")} class="invite"
+                    ><Row heightPx="fit" widthPx="fit">
+                        <Symbol name="construction" inheritColor /><Text
+                            sizeEm={1.33}
+                            weight="bolder"
+                            inheritColor>Add Toolrinth</Text
+                        >
+                    </Row></button
+                >
+                <button onclick={() => window.open(AppConfig.invites.canary, "_blank")} class="invite canary"
+                    ><Row heightPx="fit" widthPx="fit">
+                        <Symbol name="raven" inheritColor /><Text
+                            sizeEm={1.33}
+                            weight="bolder"
+                            inheritColor>Add Toolrinth Canary</Text
+                        >
+                    </Row></button
+                >
+            </Row>
         </Column>
     </Row>
+
+    <Column
+        backgroundColor="var(--pink)"
+        widthPercent={70}
+        textWrap
+        textAlign="left"
+        paddingBottomPx={10}
+        paddingTopPx={10}
+        paddingRightPx={10}
+        paddingLeftPx={10}
+        borderRadiusPx={8}
+        marginTopPx={20}
+        marginBottomPx={30}
+    >
+        <Text weight="bold"
+            >Toolrinth is still under development! Report issues or suggest features in the <a href={AppConfig.support_server} target="_blank">Support Server</a>! You can test new features using the canary version.</Text
+        >
+    </Column>
 
     <Column heightPx="fit" alignItems="center" widthPercent={80} gapEm={3}>
         <Column
@@ -104,7 +134,14 @@
         user-select: none;
     }
 
-
+    .canary {
+        background: linear-gradient(
+            54deg,
+            var(--pink) 0%,
+            var(--pink-bright) 50%,
+            var(--pink-dark) 130%
+        ) !important;
+    }
 
     .invite {
         transition: all 0.3s;
@@ -118,7 +155,7 @@
         user-select: none;
         cursor: pointer;
         border: 3px solid var(--mantle);
-        padding: 0.33em 0.8em;
+        padding: 0.2em 0.8em;
         border-radius: var(--border-md);
         box-shadow: 0px 0px 20px 5px var(--crust);
         text-shadow: 0px 0px 20px var(--crust);
