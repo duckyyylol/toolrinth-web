@@ -18,7 +18,7 @@
         feature.addEventListener("click", (ev) => {
 
           if(window.localStorage.getItem("first") !== "1") {
-            alert("Hold CTRL to disable 3D rotation!")
+            alert("Hold SHIFT to disable 3D rotation!")
             window.localStorage.setItem("first", "1")
           }
         })
@@ -42,7 +42,7 @@
             target.style.cursor = "help";
           } else target.style.cursor = "default"
 
-          if(!event.ctrlKey && !mobileQuery.current) {
+          if(!event.shiftKey && !mobileQuery.current) {
             target.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.1)`
           } else target.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
 
