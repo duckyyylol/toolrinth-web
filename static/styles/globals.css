@@ -1,0 +1,55 @@
+@import url("./fonts.css");
+@import url("./icons.css");
+@import url("./emojis.css");
+@import url("./theme.css");
+
+body {
+    background-color: var(--base);
+}
+
+*::selection {
+    background-color: var(--surface-2);
+    color: var(--accent)
+}
+
+::-webkit-scrollbar {
+    width: 0.33em;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: var(--border-sm);
+}
+
+#app {
+    background-color: var(--base);
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+a.current:not(:hover) {
+    transition: color 0.2s;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+a:hover {
+    transition: color 0.2s;
+    color: var(--accent);
+    filter: brightness(1.1);
+}
+
+a:not(.current):not(:hover) {
+    transition: color 0.2s;
+    color: var(--text);
+    filter: brightness(1);
+}
+
+.sep {
+    opacity: 0.5;
+}
+

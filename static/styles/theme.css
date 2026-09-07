@@ -1,0 +1,34 @@
+:root {
+    --border-sm: 4px;
+    --border-md: 8px;
+    --border-lg: 16px;
+
+    transition: all 0.5s;
+}
+
+.dark {
+    --green-bright: #3ccd89;
+    --green: #0f8664;
+    --green-dark: #1b8051;
+
+    --blue-bright: #3ccdcd;
+    --blue: #1b807a;
+    --blue-dark: #0f5086;
+
+    --pink-bright: #cd3cbe;
+    --pink: #7e1b80;
+    --pink-dark: #860f43;
+
+    --red-bright: #cd3c3e;
+    --red: #801b1d;
+    --red-dark: #4e0e0f;
+
+    --text: #ffffff;
+    --text-faded: #ffffff87;
+
+    --accent: #0f8664;
+
+    --base: #0c0c0c;
+    --mantle: #121212;
+    --crust: #171717;
+}
