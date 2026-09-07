@@ -64,7 +64,6 @@
             >
         </Column>
     </Row>
-    <HorizontalRule widthPercent={70} />
 
     <Column heightPx="fit" alignItems="center" widthPercent={80} gapEm={3}>
         <Column
