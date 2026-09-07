@@ -13,16 +13,35 @@
     import gallery_example from "$lib/assets/gallery_example.png";
     import tracking_example from "$lib/assets/tracking_example.png";
     import { MediaQuery } from "svelte/reactivity";
-    import { PUBLIC_MOBILE_SIZE_PX } from "$env/static/public";
+    import { PUBLIC_MOBILE_SIZE_PX, PUBLIC_TABLET_SIZE_PX } from "$env/static/public";
     import FeatureCard from "$lib/components/FeatureCard.svelte";
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import { onMount } from "svelte";
     import { AppConfig } from "$lib/config";
+    import { ApiClient } from "@toolrinth/lib";
 
     let mobileQuery = new MediaQuery(`max-width: ${PUBLIC_MOBILE_SIZE_PX}px`);
+    let tabletQuery = new MediaQuery(`max-width: ${PUBLIC_TABLET_SIZE_PX}px`);
 
-    onMount(() => {
+    let stats = $state({authors: 0, projects: 0, files: 0, versions: 0})
+    let statLoaded = $state(false);
+
+
+    onMount(async () => {
+      // const apiClient = new ApiClient();
+
+      // const {data: s} = await apiClient.Statistics().getStatistics();
+
+      // stats = {...s as any};
+
+      // let i = setInterval(() => {
+      //   if(!statLoaded && stats.authors > 0) {
+      //     statLoaded = true;
+      //     clearInterval(i);
+      //   }
+      // },1e3);
+
       document.getElementById("inner")?.scrollTo({top: 0, behavior: 'smooth'})
 	})
 </script>
@@ -35,8 +54,8 @@
         justifyContent="center"
         alignItems="center"
         textAlign="left"
-        paddingBottomPx={30}
-        paddingTopPx={30}
+        paddingBottomPx={mobileQuery.current ? 0 : 30}
+        paddingTopPx={mobileQuery.current ? 0 : 30}
         gapEm={1.66}
         flexWrap
     >
@@ -45,7 +64,7 @@
             widthPx="fit"
             heightPx="fill"
             justifyContent="flex-start"
-            alignItems="flex-start"
+            alignItems={mobileQuery.current ? "center" : "flex-start"}
             textAlign="left"
             gapEm={0.6}
         >
@@ -54,7 +73,7 @@
                 ><Text sizeEm={1.5} maxLines={1} inheritColor>Your Modrinth Companion</Text
                 ></span
             >
-            <Row>
+            <Row gapEm={0.33} justifyContent="center" heightPx="fit" flexWrap>
                 <button onclick={() => window.open(AppConfig.invites.stable, "_blank")} class="invite"
                     ><Row heightPx="fit" widthPx="fit">
                         <Symbol name="construction" inheritColor /><Text
@@ -77,9 +96,36 @@
         </Column>
     </Row>
 
+    <!-- {#if !mobileQuery.current}
+            <Column heightPx="fit">
+                <Text weight="bold">Supporting</Text>
+                <Row widthPercent={70} gapEm={2} justifyContent="flex-start" flexWrap={tabletQuery.current}>
+                    <Row heightPx="fit">
+                        <Text sizeEm={1.33} weight="bolder">{!statLoaded ? "-".repeat(7) : stats.projects.toLocaleString()}</Text>
+                        <Text weight="bold" sizeEm={1.1} classList={["italic"]}>Projects</Text>
+                    </Row>
+
+                    <Row heightPx="fit">
+                        <Text sizeEm={1.33} weight="bolder">{!statLoaded ? "-".repeat(7) : stats.authors.toLocaleString()}</Text>
+                        <Text weight="bold" sizeEm={1.1} classList={["italic"]}>Authors</Text>
+                    </Row>
+
+                    <Row heightPx="fit">
+                        <Text sizeEm={1.33} weight="bolder">{!statLoaded ? "-".repeat(7) : stats.files.toLocaleString()}</Text>
+                        <Text weight="bold" sizeEm={1.1} classList={["italic"]}>Files</Text>
+                    </Row>
+
+                    <Row heightPx="fit">
+                        <Text sizeEm={1.33} weight="bolder">{!statLoaded ? "-".repeat(7) : stats.versions.toLocaleString()}</Text>
+                        <Text weight="bold" sizeEm={1.1} classList={["italic"]}>Versions</Text>
+                    </Row>
+                </Row>
+            </Column>
+    {/if} -->
+
     <Column
         backgroundColor="var(--pink)"
-        widthPercent={70}
+        widthPercent={mobileQuery.current ? 90 : 70}
         textWrap
         textAlign="left"
         paddingBottomPx={10}
