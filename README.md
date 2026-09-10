@@ -9,7 +9,7 @@
 # Toolrinth
 Toolrinth is the all-in-one companion for keeping up with your favorite Modrinth projects! Dive in to each update with project tracking, or easily fetch information about any project with a search!
 
-[Toolrinth.com](https://toolrinth.com) is the homepage for Toolrinth
+[Toolrinth.com](https://toolrinth.com) is the homepage for Toolrinth, providing a list of key features and invites for the stable and canary clients.
 
 ---
 
