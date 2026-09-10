@@ -6,9 +6,10 @@
     interface HeaderProps {
       withHomeNav?: boolean;
       withInvites?: boolean;
+      authorized?: boolean;
     }
 
-    const { withHomeNav, withInvites }: HeaderProps = $props();
+    const { withHomeNav, withInvites, authorized = false }: HeaderProps = $props();
 </script>
 
 <Row heightPx="fit" marginTopPx={20} gapEm={1.33} flexWrap>
@@ -16,6 +17,13 @@
         <Row heightPx="fit" widthPx="fit" gapEm={0.5}>
             <Symbol name="home" sizePx={20} hoverEffect={false} inheritColor />
             <Text weight="bold"><a href="/">Home</a></Text>
+        </Row>
+        <span class="faded"><Text inheritColor>⋅</Text></span>
+    {/if}
+    {#if authorized}
+        <Row heightPx="fit" widthPx="fit" gapEm={0.5}>
+            <Symbol name="settings" sizePx={20} hoverEffect={false} inheritColor />
+            <Text weight="bold"><a href="/dashboard">Dashboard</a></Text>
         </Row>
         <span class="faded"><Text inheritColor>⋅</Text></span>
     {/if}

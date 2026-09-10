@@ -4,6 +4,6 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [sveltekit()],
 	server: {
-		allowedHosts: ["dev.ducky.wiki"]
+    allowedHosts: ["dev.ducky.wiki"],
 	}
 });

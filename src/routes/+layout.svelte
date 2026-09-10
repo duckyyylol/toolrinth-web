@@ -8,18 +8,19 @@
 
 	let pageProps: Record<string, string> = $state({});
 
-	pageProps["/"] = "Modern Discord Modrinth Companion";
-	pageProps["/tos"] = "Terms of Service";
-	pageProps["/privacy"] = "Privacy Policy";
+	pageProps["/"] = "⋅ Modern Discord Modrinth Companion";
+	pageProps["/tos"] = "⋅ Terms of Service";
+	pageProps["/privacy"] = "⋅ Privacy Policy";
+	pageProps["/dashboard"] = "⋅ Developer Dashboard";
 
 	let title = $state(pageProps[page.url.pathname]);
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Toolrinth ⋅ {title}</title>
+	<title>Toolrinth {title}</title>
 
-	<meta property="og:title" content="Toolrinth ⋅ {title}"/> <meta property="og:type" content="website"/>
+	<meta property="og:title" content="Toolrinth {title}"/> <meta property="og:type" content="website"/>
 	<meta property="og:url" content="https://toolrinth.com{page.url.pathname}"/>
 	<meta property="og:description" content="Toolrinth is the all-in-one companion for keeping up with your favorite Modrinth projects! Dive in to each update with project tracking, or easily fetch information about any project with a search!"/>
 	<meta name="theme-color" content="#32B778"/>

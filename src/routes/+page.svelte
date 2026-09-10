@@ -12,6 +12,8 @@
     import tracking_setup_example from "$lib/assets/tracking_setup_example.png";
     import gallery_example from "$lib/assets/gallery_example.png";
     import tracking_example from "$lib/assets/tracking_example.png";
+    import relay_example from "$lib/assets/relay_example.png";
+    import feed_example from "$lib/assets/feed_example.png";
     import { MediaQuery } from "svelte/reactivity";
     import { PUBLIC_MOBILE_SIZE_PX, PUBLIC_TABLET_SIZE_PX } from "$env/static/public";
     import FeatureCard from "$lib/components/FeatureCard.svelte";
@@ -20,6 +22,7 @@
     import { onMount } from "svelte";
     import { AppConfig } from "$lib/config";
     import { ApiClient } from "@toolrinth/lib";
+    import { page } from "$app/state";
 
     let mobileQuery = new MediaQuery(`max-width: ${PUBLIC_MOBILE_SIZE_PX}px`);
     let tabletQuery = new MediaQuery(`max-width: ${PUBLIC_TABLET_SIZE_PX}px`);
@@ -46,7 +49,7 @@
 	})
 </script>
 
-<Header withInvites />
+<Header withInvites authorized={page.data.authorized} />
 <Column alignItems="center" justifyContent="flex-start" paddingTopPx={50}>
     <Row
         widthPx="fit"
@@ -70,7 +73,7 @@
         >
             <Text weight="bolder" sizeEm={3}>Toolrinth</Text>
             <span class="faded"
-                ><Text sizeEm={1.5} maxLines={1} inheritColor>Your Modrinth Companion</Text
+                ><Text sizeEm={1.33} maxLines={1} inheritColor>Your Modrinth Companion. <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank">FOSS</a>, forever.</Text
                 ></span
             >
             <Row gapEm={0.33} justifyContent="center" heightPx="fit" flexWrap>
@@ -154,8 +157,7 @@
             <Heading size={2} weight="boldest">Features</Heading>
             <span class="faded"
                 ><Text sizeEm={1} weight="bold" inheritColor
-                    >Toolrinth is a slick bot for keeping up with your favorite
-                    Modrinth projects!</Text
+                    >Toolrinth has tons of features to enhance your Modrinth experience!</Text
                 ></span
             >
         </Column>
@@ -165,10 +167,12 @@
             justifyContent="center"
             alignItems="flex-start"
         >
+            <FeatureCard heading="Never Miss a Beat" description="Mirror your Modrinth notifications to your Discord DMs to stay in the loop!" image={relay_example} alt="Notification Relay Example" />
+            <FeatureCard heading="Stay Up-to-Date" description="Easily compile the newest versions of the projects you follow on Modrinth!" image={feed_example} alt="Update Feed Example" />
             <FeatureCard heading="Project Lookup" description="Easily fetch information about any project with a simple search!" image={lookup_example} alt="Project Lookup Example" />
-            <FeatureCard heading="Stay in the Loop" description="With Project Tracking, you can get realtime updates when your favorite projects release new versions!" image={tracking_setup_example} alt="Project Tracking Update Example" />
-            <FeatureCard heading="Keep Updated" description="Stay up-to-date on the newest versions of your favorite projects, and download them directly!" image={tracking_example} alt="Project Tracking Setup Example" />
-            <FeatureCard heading="Take a Good Look" description="View detailed information about Modrinth projects, like supported versions and gallery images!" image={gallery_example} alt="Gallery View Example" />
+            <FeatureCard heading="Track Versions" description="With Project Tracking, you can get realtime updates when your favorite projects release new versions!" image={tracking_setup_example} alt="Project Tracking Update Example" />
+            <FeatureCard heading="Never Fall Behind" description="Stay up-to-date on the newest versions of your favorite projects, and download them directly!" image={tracking_example} alt="Project Tracking Setup Example" />
+            <FeatureCard heading="See it All" description="View detailed information about Modrinth projects, like supported versions and gallery images!" image={gallery_example} alt="Gallery View Example" />
         </Row>
     </Column>
     <Footer />
