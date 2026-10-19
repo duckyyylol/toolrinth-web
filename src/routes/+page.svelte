@@ -49,7 +49,7 @@
 	})
 </script>
 
-<Header withInvites authorized={page.data.authorized} />
+<Header authorized={page.data.authorized} />
 <Column alignItems="center" justifyContent="flex-start" paddingTopPx={50}>
     <Row
         widthPx="fit"
@@ -71,12 +71,12 @@
             textAlign="left"
             gapEm={0.6}
         >
-            <Text weight="bolder" sizeEm={3}>Toolrinth</Text>
+            <Text weight="bolder" sizeEm={3}>ToolrinthLib</Text>
             <span class="faded"
-                ><Text sizeEm={1.33} maxLines={1} inheritColor>Your Modrinth Companion. <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank">FOSS</a>, forever.</Text
+                ><Text sizeEm={1.33} maxLines={1} inheritColor>Modrinth API made easy. <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank">FOSS</a>, forever.</Text
                 ></span
             >
-            <Row gapEm={0.33} justifyContent="center" heightPx="fit" flexWrap>
+            <!-- <Row gapEm={0.33} justifyContent="center" heightPx="fit" flexWrap>
                 <button onclick={() => window.open(AppConfig.invites.stable, "_blank")} class="invite"
                     ><Row heightPx="fit" widthPx="fit">
                         <Symbol name="construction" inheritColor /><Text
@@ -95,7 +95,7 @@
                         >
                     </Row></button
                 >
-            </Row>
+            </Row> -->
         </Column>
     </Row>
 
@@ -127,8 +127,9 @@
     {/if} -->
 
     <Column
-        backgroundColor="var(--pink)"
+        backgroundColor="var(--red)"
         widthPercent={mobileQuery.current ? 90 : 70}
+        heightPx="fit"
         textWrap
         textAlign="left"
         paddingBottomPx={10}
@@ -139,8 +140,11 @@
         marginTopPx={20}
         marginBottomPx={30}
     >
-        <Text weight="bold"
+        <!-- <Text weight="bold"
             >Toolrinth is still under development! Report issues or suggest features in the <a href={AppConfig.support_server} target="_blank">Support Server</a>! You can test new features using the canary version.</Text
+        > -->
+        <Text weight="bold"
+            >Development on the Toolrinth Discord bot has stopped. The source code is still available on <a href="https://github.com/duckyyylol/toolrinth" target="_blank">GitHub</a> for reference. The @toolrinth/lib library will still receive bug fixes and critical security patches.</Text
         >
     </Column>
 
@@ -157,7 +161,7 @@
             <Heading size={2} weight="boldest">Features</Heading>
             <span class="faded"
                 ><Text sizeEm={1} weight="bold" inheritColor
-                    >Toolrinth has tons of features to enhance your Modrinth experience!</Text
+                    >The Toolrinth Discord bot is an example usage of the library. <a href="https://github.com/duckyyylol/toolrinth" target="_blank">Source Code</a></Text
                 ></span
             >
         </Column>

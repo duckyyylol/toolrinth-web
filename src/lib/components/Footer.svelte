@@ -13,10 +13,10 @@
     <Text>🦆 Made by <a href="https://ducky.wiki" target="_blank">duckylol</a> with <a href="https://ducky.wiki/travel/github/duckylib" target="_blank">duckylib</a></Text>
     <span class="faded"><Text inheritColor>⋅</Text></span>
     <Text weight="normal"><a href="https://github.com/duckyyylol/toolrinth-web" target="_blank">Website Source Code</a></Text>
-    <span class="faded"><Text inheritColor>⋅</Text></span>
+    <!-- <span class="faded"><Text inheritColor>⋅</Text></span>
     <Text weight="normal"><a href="/tos">Terms</a></Text>
     <span class="faded"><Text inheritColor>⋅</Text></span>
-    <Text weight="normal"><a href="/privacy">Privacy Policy</a></Text>
+    <Text weight="normal"><a href="/privacy">Privacy Policy</a></Text> -->
     <span class="faded"><Text inheritColor>⋅</Text></span>
     <Text weight="normal"><a href={AppConfig.docs} target="_blank">Library Docs</a></Text>
     {#if authorized}
